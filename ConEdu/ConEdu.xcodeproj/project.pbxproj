@@ -14,6 +14,10 @@
 		046C62AD2A07844B005035F3 /* Home_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C62AC2A07844B005035F3 /* Home_View.swift */; };
 		046C62AF2A0784D3005035F3 /* Application_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C62AE2A0784D3005035F3 /* Application_View.swift */; };
 		046C62B12A0784E4005035F3 /* Profile_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C62B02A0784E4005035F3 /* Profile_View.swift */; };
+		046C62B42A078FA6005035F3 /* Custom_Rounded_Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C62B32A078FA6005035F3 /* Custom_Rounded_Rectangle.swift */; };
+		046C62B62A07954A005035F3 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C62B52A07954A005035F3 /* School.swift */; };
+		046C62B82A079844005035F3 /* DummyData.json in Resources */ = {isa = PBXBuildFile; fileRef = 046C62B72A079844005035F3 /* DummyData.json */; };
+		046C62BA2A079867005035F3 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C62B92A079867005035F3 /* ModelData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		046C62AC2A07844B005035F3 /* Home_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_View.swift; sourceTree = "<group>"; };
 		046C62AE2A0784D3005035F3 /* Application_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application_View.swift; sourceTree = "<group>"; };
 		046C62B02A0784E4005035F3 /* Profile_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_View.swift; sourceTree = "<group>"; };
+		046C62B32A078FA6005035F3 /* Custom_Rounded_Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom_Rounded_Rectangle.swift; sourceTree = "<group>"; };
+		046C62B52A07954A005035F3 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
+		046C62B72A079844005035F3 /* DummyData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DummyData.json; sourceTree = "<group>"; };
+		046C62B92A079867005035F3 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				041A01D42A03E361009ED4D9 /* ConEdu */,
+				046C62B72A079844005035F3 /* DummyData.json */,
 				041A01D32A03E361009ED4D9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +73,7 @@
 				041A01E52A03E699009ED4D9 /* Controller */,
 				041A01E42A03E691009ED4D9 /* View */,
 				041A01E32A03E68A009ED4D9 /* Model */,
+				046C62B22A078F88005035F3 /* Helpers */,
 				041A01D92A03E363009ED4D9 /* Assets.xcassets */,
 				041A01DB2A03E363009ED4D9 /* Preview Content */,
 			);
@@ -81,6 +91,8 @@
 		041A01E32A03E68A009ED4D9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				046C62B52A07954A005035F3 /* School.swift */,
+				046C62B92A079867005035F3 /* ModelData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,6 +112,14 @@
 			children = (
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		046C62B22A078F88005035F3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				046C62B32A078FA6005035F3 /* Custom_Rounded_Rectangle.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +182,7 @@
 			files = (
 				041A01DD2A03E363009ED4D9 /* Preview Assets.xcassets in Resources */,
 				041A01DA2A03E363009ED4D9 /* Assets.xcassets in Resources */,
+				046C62B82A079844005035F3 /* DummyData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,10 +193,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046C62B62A07954A005035F3 /* School.swift in Sources */,
 				041A01D82A03E361009ED4D9 /* ContentView.swift in Sources */,
 				046C62AD2A07844B005035F3 /* Home_View.swift in Sources */,
 				046C62B12A0784E4005035F3 /* Profile_View.swift in Sources */,
 				041A01D62A03E361009ED4D9 /* ConEduApp.swift in Sources */,
+				046C62BA2A079867005035F3 /* ModelData.swift in Sources */,
+				046C62B42A078FA6005035F3 /* Custom_Rounded_Rectangle.swift in Sources */,
 				046C62AF2A0784D3005035F3 /* Application_View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,9 +7,42 @@
 
 import SwiftUI
 
+
 struct Home_View: View {
+    
+    @State private var searchText = ""
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack {
+            
+            //hello future awardees header, blue header
+            VStack {
+                HStack{
+                    //change image later
+                    Image("Logo")
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                    
+                    Spacer()
+                    
+                    VStack(alignment: .trailing){
+                        Text("Hello Future Awardee,")
+                        //change name later
+                        Text("John Doe")
+                            .font(.largeTitle)
+                    }
+
+                }.padding(.top,50)
+            }
+            .padding()
+            .background(Color.orange)
+            .roundedCorner(20, corners: [.bottomLeft, .bottomRight])
+            .ignoresSafeArea()
+            //header end
+            
+            ScrollView{}
+        }
     }
 }
 
