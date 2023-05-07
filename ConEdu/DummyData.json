@@ -7,7 +7,7 @@
         "scholarship_description": "this si desdcription",
         "scholarship_type": "Partialy Funded",
         "application_fee": 250000,
-        "scholarship_degree": "JBachelor",
+        "scholarship_degree": "Bachelor",
         "majors": {
             "Comp Sci": "Coding ",
             "Psychology": "THinking"
