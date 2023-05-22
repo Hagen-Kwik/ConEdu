@@ -8,20 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+//    @ObservedObject var student = Student()
+
+    
     var body: some View {
-        
-        
         TabView {
-            Home_View()
+            SchoolView()
                 .tabItem {
                     Label("Home", systemImage: "homekit")
                 }
-            
+
             Application_View()
                 .tabItem {
-                    Label("Application", systemImage: "folder")
+                    Label("Wishlist", systemImage: "star.fill")
                 }
-            
+
             Profile_View()
                 .tabItem {
                     Label("Profile", systemImage: "person")

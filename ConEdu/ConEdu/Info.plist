@@ -5,9 +5,9 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>
-		<string>SplashScreenColor</string>
+		<string>splash_screen_color</string>
 		<key>UIImageName</key>
-		<string>Logo</string>
+		<string>logo</string>
 		<key>UIImageRespectsSafeAreaInsets</key>
 		<true/>
 	</dict>

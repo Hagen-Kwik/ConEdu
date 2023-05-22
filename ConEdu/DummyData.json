@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "school_id": 1,
         "school_name": "Empower",
         "gmail": "@gmail.com",
         "scholarship_name": "Twentynine Palms",
@@ -18,7 +18,7 @@
         },
     },
     {
-        "id": 2,
+        "school_id": 2,
         "school_name": "IISMA",
         "gmail": "@gmail.com",
         "scholarship_name": "ISISMA SIISMA",
