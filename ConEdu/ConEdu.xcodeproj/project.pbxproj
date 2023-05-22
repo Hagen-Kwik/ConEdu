@@ -18,6 +18,12 @@
 		046C62B62A07954A005035F3 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C62B52A07954A005035F3 /* School.swift */; };
 		046C62B82A079844005035F3 /* DummyData.json in Resources */ = {isa = PBXBuildFile; fileRef = 046C62B72A079844005035F3 /* DummyData.json */; };
 		046C62BA2A079867005035F3 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C62B92A079867005035F3 /* ModelData.swift */; };
+		BF218B712A1BAD4800D70577 /* WishlistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF218B702A1BAD4800D70577 /* WishlistController.swift */; };
+		BF218B732A1BAD5300D70577 /* SchoolController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF218B722A1BAD5300D70577 /* SchoolController.swift */; };
+		BF218B752A1BAD6300D70577 /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF218B742A1BAD6300D70577 /* WishlistView.swift */; };
+		BF218B772A1BAD7300D70577 /* SchoolDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF218B762A1BAD7300D70577 /* SchoolDetailView.swift */; };
+		BF218B792A1BAD7E00D70577 /* Wishlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF218B782A1BAD7E00D70577 /* Wishlist.swift */; };
+		BF218B7B2A1BAD8500D70577 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF218B7A2A1BAD8500D70577 /* Student.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,12 @@
 		046C62B52A07954A005035F3 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		046C62B72A079844005035F3 /* DummyData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DummyData.json; sourceTree = "<group>"; };
 		046C62B92A079867005035F3 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		BF218B702A1BAD4800D70577 /* WishlistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WishlistController.swift; path = ../../../../MovieHub2/MovieHub2/Views/Profile/WishlistController.swift; sourceTree = "<group>"; };
+		BF218B722A1BAD5300D70577 /* SchoolController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SchoolController.swift; path = ../../../../MovieHub2/MovieHub2/Views/Profile/SchoolController.swift; sourceTree = "<group>"; };
+		BF218B742A1BAD6300D70577 /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
+		BF218B762A1BAD7300D70577 /* SchoolDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailView.swift; sourceTree = "<group>"; };
+		BF218B782A1BAD7E00D70577 /* Wishlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishlist.swift; sourceTree = "<group>"; };
+		BF218B7A2A1BAD8500D70577 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +105,8 @@
 			children = (
 				046C62B52A07954A005035F3 /* School.swift */,
 				046C62B92A079867005035F3 /* ModelData.swift */,
+				BF218B782A1BAD7E00D70577 /* Wishlist.swift */,
+				BF218B7A2A1BAD8500D70577 /* Student.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -103,6 +117,8 @@
 				046C62AC2A07844B005035F3 /* Home_View.swift */,
 				046C62AE2A0784D3005035F3 /* Application_View.swift */,
 				046C62B02A0784E4005035F3 /* Profile_View.swift */,
+				BF218B742A1BAD6300D70577 /* WishlistView.swift */,
+				BF218B762A1BAD7300D70577 /* SchoolDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -110,6 +126,8 @@
 		041A01E52A03E699009ED4D9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BF218B702A1BAD4800D70577 /* WishlistController.swift */,
+				BF218B722A1BAD5300D70577 /* SchoolController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,14 +211,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF218B712A1BAD4800D70577 /* WishlistController.swift in Sources */,
+				BF218B732A1BAD5300D70577 /* SchoolController.swift in Sources */,
 				046C62B62A07954A005035F3 /* School.swift in Sources */,
+				BF218B792A1BAD7E00D70577 /* Wishlist.swift in Sources */,
 				041A01D82A03E361009ED4D9 /* ContentView.swift in Sources */,
+				BF218B7B2A1BAD8500D70577 /* Student.swift in Sources */,
 				046C62AD2A07844B005035F3 /* Home_View.swift in Sources */,
 				046C62B12A0784E4005035F3 /* Profile_View.swift in Sources */,
 				041A01D62A03E361009ED4D9 /* ConEduApp.swift in Sources */,
+				BF218B752A1BAD6300D70577 /* WishlistView.swift in Sources */,
 				046C62BA2A079867005035F3 /* ModelData.swift in Sources */,
 				046C62B42A078FA6005035F3 /* Custom_Rounded_Rectangle.swift in Sources */,
 				046C62AF2A0784D3005035F3 /* Application_View.swift in Sources */,
+				BF218B772A1BAD7300D70577 /* SchoolDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
