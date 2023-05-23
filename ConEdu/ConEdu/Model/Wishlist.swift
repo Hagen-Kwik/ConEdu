@@ -15,7 +15,7 @@ class Wishlist: ObservableObject {
     }
     
     func contains(_ school: School) -> Bool {
-        return schools.contains { $0.id == school.id }
+        return schools.contains { $0.id == school.id && $0.school_name == school.school_name } // Modify the condition to check for equality
     }
     
     

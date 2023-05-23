@@ -15,14 +15,37 @@ class WishlistController: ObservableObject {
         return wishlists.first { $0.studentId == studentId }
     }
     
+    // still with bug
+//    func addToWishlist(_ school: School) {
+//        if let wishlist = getWishlist() {
+//            if !wishlist.contains(school) {
+//                wishlist.addToWishlist(school)
+//            }
+//        } else {
+//            let newWishlist = Wishlist(studentId: studentId)
+//            newWishlist.addToWishlist(school)
+//            wishlists.append(newWishlist)
+//        }
+//    }
+    
+    // bug fix alternative 1
     func addToWishlist(_ school: School) {
         if let wishlist = getWishlist() {
-            if !wishlist.contains(school) {
-                wishlist.schools.append(school)
+            let newWishlist = Wishlist(studentId: studentId)
+
+            for existingSchool in wishlist.schools {
+                newWishlist.addToWishlist(existingSchool)
             }
+
+            newWishlist.addToWishlist(school)
+
+            if let index = wishlists.firstIndex(where: { $0.studentId == studentId }) {
+                wishlists.remove(at: index)
+            }
+            wishlists.append(newWishlist)
         } else {
             let newWishlist = Wishlist(studentId: studentId)
-            newWishlist.schools.append(school)
+            newWishlist.addToWishlist(school)
             wishlists.append(newWishlist)
         }
     }

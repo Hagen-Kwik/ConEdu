@@ -50,8 +50,7 @@ struct WishlistView: View {
                     
                     
                         //scholarship cardview
-                    ForEach(schoolController.getSchoolList()) { school in
-                        if wishlist_controller.getWishlist()?.contains(school) ?? false {
+                    ForEach(wishlist_controller.getWishlist()?.schools ?? []) { school in
                             //VINCENT MASUKIN NAV E KESINI YA
                             NavigationLink(destination: SchoolDetailView(schoolController: schoolController, schoolId: school.id).environmentObject(wishlist_controller)) {
                                 HStack {
@@ -96,7 +95,7 @@ struct WishlistView: View {
                             //                            UNCOMMNENT INI NANTI BUAT KONEK KE DETAILS VIEW
                             // end loop bracket
                         }
-                    }
+                    
                 }.padding()
             }.ignoresSafeArea()
         }.ignoresSafeArea()
