@@ -4,15 +4,13 @@
 //
 //  Created by MacBook Pro on 07/05/23.
 //
-
 import SwiftUI
 
 
-struct SchoolView: View {
+struct WishlistView: View {
     
-    @ObservedObject var school_controller : SchoolController
+    @ObservedObject var schoolController: SchoolController
     @EnvironmentObject var wishlist_controller: WishlistController
-    
     var body: some View {
         NavigationView {
         VStack {
@@ -52,9 +50,10 @@ struct SchoolView: View {
                     
                     
                         //scholarship cardview
-                        ForEach(school_controller.getSchoolList()) { school in
+                    ForEach(schoolController.getSchoolList()) { school in
+                        if wishlist_controller.getWishlist()?.contains(school) ?? false {
                             //VINCENT MASUKIN NAV E KESINI YA
-                            NavigationLink(destination: SchoolDetailView(schoolController: school_controller, schoolId: school.id).environmentObject(wishlist_controller)) {
+                            NavigationLink(destination: SchoolDetailView(schoolController: schoolController, schoolId: school.id).environmentObject(wishlist_controller)) {
                                 HStack {
                                     Image(school.picture)
                                         .resizable()
@@ -92,11 +91,11 @@ struct SchoolView: View {
                                 .padding()
                                 .background(Color(red: 0.129, green: 0.588, blue: 0.952, opacity: 0.5))
                                 .roundedCorner(20, corners: [.bottomLeft, .bottomRight, .topRight, .topLeft])
-                            // end navlink bracket
+                                // end navlink bracket
                             }
-//                            UNCOMMNENT INI NANTI BUAT KONEK KE DETAILS VIEW
-                        // end loop bracket
-                        
+                            //                            UNCOMMNENT INI NANTI BUAT KONEK KE DETAILS VIEW
+                            // end loop bracket
+                        }
                     }
                 }.padding()
             }.ignoresSafeArea()
@@ -105,12 +104,12 @@ struct SchoolView: View {
     }
 }
 
-struct Home_View_Previews: PreviewProvider {
-    static var previews: some View {
-        let dummySchoolController = SchoolController()
-        let dummyWishlistController = WishlistController()
-        SchoolView(school_controller: dummySchoolController).environmentObject(dummyWishlistController)
-    }
-}
+
+
+//struct Wishlist_View_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SchoolView()
+//    }
+//}
 
 

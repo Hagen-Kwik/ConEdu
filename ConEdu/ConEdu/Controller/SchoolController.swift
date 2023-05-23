@@ -15,7 +15,7 @@ class SchoolController: ObservableObject {
     }
     
     func getSchoolByID(id: Int) -> School? {
-        return schools.first(where: { $0.id == id })
-    }
+          return schools.first { $0.id == id }
+      }
 
 }

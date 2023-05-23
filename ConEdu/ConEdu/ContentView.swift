@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-//    @ObservedObject var student = Student()
+     var schoolController = SchoolController()
+    var wishlistController = WishlistController()
 
-    
     var body: some View {
         TabView {
-            SchoolView()
+            SchoolView(school_controller: schoolController)
+                .environmentObject(wishlistController)
                 .tabItem {
                     Label("Home", systemImage: "homekit")
                 }
 
-            Application_View()
+            WishlistView(schoolController: schoolController)
+                .environmentObject(wishlistController)
                 .tabItem {
                     Label("Wishlist", systemImage: "star.fill")
                 }
@@ -32,7 +33,6 @@ struct ContentView: View {
     }
 }
 
-        
         
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
