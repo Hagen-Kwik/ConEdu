@@ -53,9 +53,10 @@ struct SchoolView: View {
                     
                         //scholarship cardview
                         ForEach(school_controller.getSchoolList()) { school in
-                            //VINCENT MASUKIN NAV E KESINI YA
-                            NavigationLink(destination: SchoolDetailView(schoolController: school_controller, schoolId: school.id).environmentObject(wishlist_controller)) {
+                            //navigation to details
+                            NavigationLink(destination: SchoolDetailView(school_controller: school_controller, school_id: school.id).environmentObject(wishlist_controller)) {
                                 HStack {
+                                    //scholarship logo
                                     Image(school.picture)
                                         .resizable()
                                         .frame(width: 75, height: 75)
@@ -94,9 +95,7 @@ struct SchoolView: View {
                                 .roundedCorner(20, corners: [.bottomLeft, .bottomRight, .topRight, .topLeft])
                             // end navlink bracket
                             }
-//                            UNCOMMNENT INI NANTI BUAT KONEK KE DETAILS VIEW
                         // end loop bracket
-                        
                     }
                 }.padding()
             }.ignoresSafeArea()

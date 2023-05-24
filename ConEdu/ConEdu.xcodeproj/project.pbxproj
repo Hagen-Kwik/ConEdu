@@ -12,12 +12,10 @@
 		041A01DA2A03E363009ED4D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041A01D92A03E363009ED4D9 /* Assets.xcassets */; };
 		041A01DD2A03E363009ED4D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041A01DC2A03E363009ED4D9 /* Preview Assets.xcassets */; };
 		046C62AD2A07844B005035F3 /* SchoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C62AC2A07844B005035F3 /* SchoolView.swift */; };
-		046C62AF2A0784D3005035F3 /* Application_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C62AE2A0784D3005035F3 /* Application_View.swift */; };
-		046C62B12A0784E4005035F3 /* Profile_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C62B02A0784E4005035F3 /* Profile_View.swift */; };
+		046C62B12A0784E4005035F3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C62B02A0784E4005035F3 /* ProfileView.swift */; };
 		046C62B42A078FA6005035F3 /* Custom_Rounded_Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C62B32A078FA6005035F3 /* Custom_Rounded_Rectangle.swift */; };
 		046C62B62A07954A005035F3 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C62B52A07954A005035F3 /* School.swift */; };
 		046C62B82A079844005035F3 /* DummyData.json in Resources */ = {isa = PBXBuildFile; fileRef = 046C62B72A079844005035F3 /* DummyData.json */; };
-		046C62BA2A079867005035F3 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C62B92A079867005035F3 /* ModelData.swift */; };
 		04E1C79E2A191A9F00D3DD3D /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1C79D2A191A9F00D3DD3D /* Student.swift */; };
 		04E1C7A02A19F1C100D3DD3D /* SchoolController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1C79F2A19F1C100D3DD3D /* SchoolController.swift */; };
 		BF218B7D2A1BB26F00D70577 /* WishlistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF218B7C2A1BB26F00D70577 /* WishlistController.swift */; };
@@ -35,12 +33,10 @@
 		041A01DC2A03E363009ED4D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		041A01E62A03E8FC009ED4D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		046C62AC2A07844B005035F3 /* SchoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolView.swift; sourceTree = "<group>"; };
-		046C62AE2A0784D3005035F3 /* Application_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application_View.swift; sourceTree = "<group>"; };
-		046C62B02A0784E4005035F3 /* Profile_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_View.swift; sourceTree = "<group>"; };
+		046C62B02A0784E4005035F3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		046C62B32A078FA6005035F3 /* Custom_Rounded_Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom_Rounded_Rectangle.swift; sourceTree = "<group>"; };
 		046C62B52A07954A005035F3 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		046C62B72A079844005035F3 /* DummyData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DummyData.json; sourceTree = "<group>"; };
-		046C62B92A079867005035F3 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		04E1C79D2A191A9F00D3DD3D /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		04E1C79F2A19F1C100D3DD3D /* SchoolController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolController.swift; sourceTree = "<group>"; };
 		BF218B7C2A1BB26F00D70577 /* WishlistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistController.swift; sourceTree = "<group>"; };
@@ -106,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				046C62B52A07954A005035F3 /* School.swift */,
-				046C62B92A079867005035F3 /* ModelData.swift */,
 				04E1C79D2A191A9F00D3DD3D /* Student.swift */,
 				BF218B802A1BB28F00D70577 /* Wishlist.swift */,
 			);
@@ -117,8 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				046C62AC2A07844B005035F3 /* SchoolView.swift */,
-				046C62AE2A0784D3005035F3 /* Application_View.swift */,
-				046C62B02A0784E4005035F3 /* Profile_View.swift */,
+				046C62B02A0784E4005035F3 /* ProfileView.swift */,
 				BF218B7E2A1BB28100D70577 /* SchoolDetailView.swift */,
 				BF218B822A1BCB8600D70577 /* WishlistView.swift */,
 				BF218B842A1C8DF400D70577 /* ToastView.swift */,
@@ -221,13 +215,11 @@
 				BF218B852A1C8DF400D70577 /* ToastView.swift in Sources */,
 				BF218B812A1BB28F00D70577 /* Wishlist.swift in Sources */,
 				BF218B7D2A1BB26F00D70577 /* WishlistController.swift in Sources */,
-				046C62B12A0784E4005035F3 /* Profile_View.swift in Sources */,
+				046C62B12A0784E4005035F3 /* ProfileView.swift in Sources */,
 				04E1C7A02A19F1C100D3DD3D /* SchoolController.swift in Sources */,
 				041A01D62A03E361009ED4D9 /* ConEduApp.swift in Sources */,
 				04E1C79E2A191A9F00D3DD3D /* Student.swift in Sources */,
-				046C62BA2A079867005035F3 /* ModelData.swift in Sources */,
 				046C62B42A078FA6005035F3 /* Custom_Rounded_Rectangle.swift in Sources */,
-				046C62AF2A0784D3005035F3 /* Application_View.swift in Sources */,
 				BF218B7F2A1BB28100D70577 /* SchoolDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

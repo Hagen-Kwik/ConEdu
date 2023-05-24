@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-     var schoolController = SchoolController()
+    var schoolController = SchoolController()
     var wishlistController = WishlistController()
 
     var body: some View {
@@ -19,13 +19,13 @@ struct ContentView: View {
                     Label("Home", systemImage: "homekit")
                 }
 
-            WishlistView(schoolController: schoolController)
+            WishlistView(school_controller: schoolController)
                 .environmentObject(wishlistController)
                 .tabItem {
                     Label("Wishlist", systemImage: "star.fill")
                 }
 
-            Profile_View()
+            ProfileView()
                 .tabItem {
                     Label("Profile", systemImage: "person")
                 }

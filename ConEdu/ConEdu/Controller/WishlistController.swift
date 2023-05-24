@@ -9,7 +9,7 @@ import Foundation
 
 class WishlistController: ObservableObject {
     @Published var wishlists: [Wishlist] = []
-    var studentId: Int = 0 // The current student ID
+    var student_id: Int = 0 // The current student ID
         
         // UserDefaults keys
 //        private let wishlistKey = "WishlistKey"
@@ -29,12 +29,12 @@ class WishlistController: ObservableObject {
         }
         
         func getWishlist() -> Wishlist? {
-            return wishlists.first { $0.studentId == studentId }
+            return wishlists.first { $0.student_id == student_id }
         }
         
         func addToWishlist(_ school: School) {
             if let wishlist = getWishlist() {
-                      let newWishlist = Wishlist(studentId: studentId)
+                let newWishlist = Wishlist(student_id: student_id)
 
                       for existingSchool in wishlist.schools {
                           newWishlist.addToWishlist(existingSchool)
@@ -42,12 +42,12 @@ class WishlistController: ObservableObject {
 
                       newWishlist.addToWishlist(school)
 
-                      if let index = wishlists.firstIndex(where: { $0.studentId == studentId }) {
+                      if let index = wishlists.firstIndex(where: { $0.student_id == student_id }) {
                           wishlists.remove(at: index)
                       }
                       wishlists.append(newWishlist)
                   } else {
-                      let newWishlist = Wishlist(studentId: studentId)
+                      let newWishlist = Wishlist(student_id: student_id)
                       newWishlist.addToWishlist(school)
                       wishlists.append(newWishlist)
                   }
@@ -64,7 +64,7 @@ class WishlistController: ObservableObject {
         
         func deleteFromWishlist(_ school: School) {
             for wishlist in wishlists {
-                if wishlist.studentId == studentId {
+                if wishlist.student_id == student_id {
                     wishlist.schools.removeAll { $0.id == school.id }
                 }
             }

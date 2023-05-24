@@ -7,17 +7,17 @@
 
 import SwiftUI
 struct SchoolDetailView: View {
-    @ObservedObject var schoolController: SchoolController
-    @EnvironmentObject var wishlistController: WishlistController
-    @State var schoolId: Int
+    @ObservedObject var school_controller: SchoolController
+    @EnvironmentObject var wishlist_controller: WishlistController
+    @State var school_id: Int
     
     var body: some View {
         VStack {
             HStack {
                 Spacer()
                 Button(action: toggleWishlist) {
-                    if let school = schoolController.getSchoolByID(id: schoolId),
-                       let wishlist = wishlistController.getWishlist(),
+                    if let school = school_controller.getSchoolByID(id: school_id),
+                       let wishlist = wishlist_controller.getWishlist(),
                        wishlist.contains(school) {
                         Image(systemName: "heart.fill")
                     } else {
@@ -29,26 +29,71 @@ struct SchoolDetailView: View {
             }
             .padding(.horizontal)
             
-            if let school = schoolController.getSchoolByID(id: schoolId) {
+            if let school = school_controller.getSchoolByID(id: school_id) {
                 VStack {
-                    Text(school.school_name)
+                    //scholarship logo
+                    Image(school.picture)
+                        .resizable()
+                        .frame(width: 95, height: 90)
+                        .padding(1)
+                    
+                    //scholarship name
+                    Text(school.scholarship_name)
                         .font(.title)
+                        .bold()
                         .padding()
                     
-                    Text("Email: \(school.gmail)")
-                        .font(.headline)
-                        .padding()
+                    //information details
+                    VStack(alignment: .leading){
+                        //school name
+                        HStack(alignment: .firstTextBaseline) {
+                            Image(systemName: "location.fill")
+                            Text(school.school_name)
+                        }.padding(5)
+                        
+                        //degree
+                        HStack(alignment: .firstTextBaseline) {
+                            Image(systemName: "medal")
+                            Text(school.scholarship_degree)
+                        }.padding(5)
+                        
+                        //scholarhsip type
+                        HStack(alignment: .firstTextBaseline) {
+                            Image(systemName: "dollarsign.circle")
+                            Text(school.scholarship_type)
+                        }.padding(5)
+                    }
+                    .padding(.leading, 30)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .edgesIgnoringSafeArea(.all)
+
+                    Text("Description")
+
+                    Text("Application Fee: Rp. \(school.application_fee)")
                     
-                    Text("Scholarship Name: \(school.scholarship_name)")
-                        .font(.headline)
-                        .padding()
-                    
-                    Text("Scholarship Type: \(school.scholarship_type)")
-                        .font(.headline)
-                        .padding()
+                    //apply scholarship button
+                    Button(action: {
+                        // Action to perform when the button is tapped
+                    }) {
+                        Text("Apply Scholarship")
+                            .foregroundColor(.white)
+                            .padding()
+                    }
+                    .padding(3)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(15) //
+                    .padding(30)
+
                     
                     Spacer()
+                    
+                    
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+                
+                
             } else {
                 Text("School not found")
             }
@@ -56,20 +101,21 @@ struct SchoolDetailView: View {
     }
     
     private func toggleWishlist() {
-        if let school = schoolController.getSchoolByID(id: schoolId) {
-            if wishlistController.getWishlist()?.contains(school) == true {
-                wishlistController.deleteFromWishlist(school)
+        if let school = school_controller.getSchoolByID(id: school_id) {
+            if wishlist_controller.getWishlist()?.contains(school) == true {
+                wishlist_controller.deleteFromWishlist(school)
             } else {
-                wishlistController.addToWishlist(school)
+                wishlist_controller.addToWishlist(school)
             }
         }
     }
+    
     struct SchoolDetailView_Previews: PreviewProvider {
         static var previews: some View {
             let dummySchoolController = SchoolController()
             let dummyWishlistController = WishlistController()
             
-            return SchoolDetailView(schoolController: dummySchoolController, schoolId: 1).environmentObject(dummyWishlistController)
+            return SchoolDetailView(school_controller: dummySchoolController, school_id: 1).environmentObject(dummyWishlistController)
         }
     }
 }
