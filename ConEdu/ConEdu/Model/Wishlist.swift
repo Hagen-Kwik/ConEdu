@@ -6,18 +6,28 @@
 //
 
 import Foundation
-class Wishlist: ObservableObject {
-    var studentId: Int 
+class Wishlist: ObservableObject, Codable {
+    var studentId: Int
     @Published var schools: [School] = []
+    
+    enum CodingKeys: String, CodingKey {
+        case studentId
+        case schools
+    }
     
     init(studentId: Int) {
         self.studentId = studentId
     }
     
-    func contains(_ school: School) -> Bool {
-        return schools.contains { $0.id == school.id && $0.school_name == school.school_name } // Modify the condition to check for equality
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        studentId = try container.decode(Int.self, forKey: .studentId)
+        schools = try container.decode([School].self, forKey: .schools)
     }
     
+    func contains(_ school: School) -> Bool {
+        return schools.contains { $0.id == school.id }
+    }
     
     func addToWishlist(_ school: School) {
         if !contains(school) {
@@ -28,4 +38,11 @@ class Wishlist: ObservableObject {
     func deleteFromWishlist(_ school: School) {
         schools.removeAll { $0.id == school.id }
     }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(studentId, forKey: .studentId)
+        try container.encode(schools, forKey: .schools)
+    }
 }
+
