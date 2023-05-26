@@ -14,9 +14,8 @@ import Foundation
 
 class WishlistController: ObservableObject {
     @Published var wishlists: [Wishlist] = []
-    var student_id: Int = 0 // The current student ID
-        
-
+    // The current student ID
+    var student_id: Int = 0
         
         init() {
             guard let data = UserDefaults.standard.data(forKey: "WishlistKey") else {

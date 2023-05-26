@@ -8,14 +8,14 @@
 
 import SwiftUI
 struct SchoolDetailView: View {
+    
     @ObservedObject var school_controller: SchoolController
     @EnvironmentObject var wishlist_controller: WishlistController
+    
     @State var school_id: Int
     @State private var show_message = false
     @State private var toast_message = ""
 
-
-    
     var body: some View {
         VStack {
             if let school = school_controller.getSchoolByID(id: school_id) {
@@ -143,6 +143,7 @@ struct SchoolDetailView: View {
         }
     }
     
+    //function logic to add or remove school from wishlist
     private func toggleWishlist(){
         if let school = school_controller.getSchoolByID(id: school_id) {
             if wishlist_controller.getWishlist(school, students_id: school_id)?.contains(school) == true {
@@ -186,13 +187,13 @@ struct SchoolDetailView: View {
             }
         }
     }
-    
-    struct SchoolDetailView_Previews: PreviewProvider {
-        static var previews: some View {
-            let dummySchoolController = SchoolController()
-            let dummyWishlistController = WishlistController()
-            
-            return SchoolDetailView(school_controller: dummySchoolController, school_id: 1).environmentObject(dummyWishlistController)
-        }
-    }
 }
+
+//struct SchoolDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let dummySchoolController = SchoolController()
+//        let dummyWishlistController = WishlistController()
+//
+//        return SchoolDetailView(school_controller: dummySchoolController, school_id: 1).environmentObject(dummyWishlistController)
+//    }
+//}

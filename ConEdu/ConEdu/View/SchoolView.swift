@@ -104,12 +104,11 @@ struct SchoolView: View {
     }
 }
 
-struct Home_View_Previews: PreviewProvider {
-    static var previews: some View {
-        let dummySchoolController = SchoolController()
-        let dummyWishlistController = WishlistController()
-        SchoolView(school_controller: dummySchoolController).environmentObject(dummyWishlistController)
-    }
-}
-
+//struct Home_View_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let dummySchoolController = SchoolController()
+//        let dummyWishlistController = WishlistController()
+//        SchoolView(school_controller: dummySchoolController).environmentObject(dummyWishlistController)
+//    }
+//}
 

@@ -16,9 +16,9 @@ struct School: Codable, Identifiable {
     var scholarship_description: String
     var scholarship_type: String
     var application_fee: Int
-    var scholarship_degree: String
     var majors: [String: String]
     var required_documents: [String]
+    var scholarship_degree: String
     var picture: String
     
     
