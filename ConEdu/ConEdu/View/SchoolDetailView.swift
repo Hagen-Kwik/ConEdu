@@ -11,8 +11,8 @@ struct SchoolDetailView: View {
     @ObservedObject var school_controller: SchoolController
     @EnvironmentObject var wishlist_controller: WishlistController
     @State var school_id: Int
-    @State private var showMessage = false
-    @State private var toastMessage = ""
+    @State private var show_message = false
+    @State private var toast_message = ""
 
 
     
@@ -126,6 +126,17 @@ struct SchoolDetailView: View {
                         }
                     }
                 }
+                // show toast in overlay
+                .overlay(
+                    Group {
+                        if show_message {
+                            ToastView(show_message: $show_message, toast_message: toast_message)
+                                .transition(.opacity)
+                        }
+                    }
+                )
+                
+                
             } else {
                 Text("School not found")
             }
@@ -135,17 +146,45 @@ struct SchoolDetailView: View {
     private func toggleWishlist(){
         if let school = school_controller.getSchoolByID(id: school_id) {
             if wishlist_controller.getWishlist(school, students_id: school_id)?.contains(school) == true {
-                //remove from wishlist
+                //remove from wishlist & assign toast message
                 wishlist_controller.deleteFromWishlist(school, students_id: school_id)
-                toastMessage = "School removed from wishlist"
+                toast_message = "School removed from wishlist"
             } else {
-//               add to wishlist
+//               add to wishlist & assign toast message
                 wishlist_controller.addToWishlist(school, students_id: school_id)
-                toastMessage = "School added to wishlist"
+                toast_message = "School added to wishlist"
             }
         }
-        showMessage = true
-
+        //change show message true to show toast view
+        show_message = true
+    }
+    
+    
+    struct ToastView: View {
+        
+        @Binding var show_message: Bool
+        var toast_message: String
+        
+        var body: some View {
+            VStack {
+                //text on colored box background
+                Text(toast_message)
+                    .font(.headline)
+                    .padding()
+                    .background(Color.gray)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .padding()
+            }
+            //1 second after appearing change show_message back to false to make view disappear
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    withAnimation {
+                        show_message = false
+                    }
+                }
+            }
+        }
     }
     
     struct SchoolDetailView_Previews: PreviewProvider {
