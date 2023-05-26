@@ -24,7 +24,7 @@ struct WishlistView: View {
                 
                 ScrollView{
                     //scholarship cardview
-                    ForEach(wishlist_controller.getWishlist()?.schools ?? []) { school in
+                    ForEach(wishlist_controller.getWishlist(school_controller.schools[0], students_id: 0)?.schools ?? []) { school in
                         //nagivation
                         NavigationLink(destination: SchoolDetailView(school_controller: school_controller, school_id: school.id).environmentObject(wishlist_controller)) {
                             HStack {

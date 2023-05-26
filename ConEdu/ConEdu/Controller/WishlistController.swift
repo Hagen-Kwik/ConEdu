@@ -5,14 +5,18 @@
 //  Created by Vincent on 22/05/23.
 //
 
+
+
+
+
+
 import Foundation
 
 class WishlistController: ObservableObject {
     @Published var wishlists: [Wishlist] = []
     var student_id: Int = 0 // The current student ID
         
-        // UserDefaults keys
-//        private let wishlistKey = "WishlistKey"
+
         
         init() {
             guard let data = UserDefaults.standard.data(forKey: "WishlistKey") else {
@@ -28,27 +32,27 @@ class WishlistController: ObservableObject {
             }
         }
         
-        func getWishlist() -> Wishlist? {
+        func getWishlist(_ school: School, students_id: Int) -> Wishlist? {
             return wishlists.first { $0.student_id == student_id }
         }
         
-        func addToWishlist(_ school: School) {
-            if let wishlist = getWishlist() {
-                let newWishlist = Wishlist(student_id: student_id)
+    func addToWishlist(_ school: School, students_id: Int) {
+        if let wishlist = getWishlist(school, students_id: student_id) {
+            let newWishlist = Wishlist(student_id: student_id)
 
                       for existingSchool in wishlist.schools {
-                          newWishlist.addToWishlist(existingSchool)
+                          newWishlist.schools.append(existingSchool)
                       }
 
-                      newWishlist.addToWishlist(school)
+            newWishlist.schools.append(school)
 
-                      if let index = wishlists.firstIndex(where: { $0.student_id == student_id }) {
+                if let index = wishlists.firstIndex(where: { $0.student_id == student_id }) {
                           wishlists.remove(at: index)
                       }
                       wishlists.append(newWishlist)
                   } else {
                       let newWishlist = Wishlist(student_id: student_id)
-                      newWishlist.addToWishlist(school)
+                      newWishlist.schools.append(school)
                       wishlists.append(newWishlist)
                   }
             
@@ -62,7 +66,7 @@ class WishlistController: ObservableObject {
             }
         }
         
-        func deleteFromWishlist(_ school: School) {
+        func deleteFromWishlist(_ school: School, students_id: Int) {
             for wishlist in wishlists {
                 if wishlist.student_id == student_id {
                     wishlist.schools.removeAll { $0.id == school.id }
@@ -80,31 +84,5 @@ class WishlistController: ObservableObject {
                 print("Failed to save wishlists: \(error)")
             }
         }
-        
-//        // Save wishlists to UserDefaults
-//        private func saveWishlists() {
-//            do {
-//                let encoder = JSONEncoder()
-//                let data = try encoder.encode(wishlists)
-//                UserDefaults.standard.set(data, forKey: wishlistKey)
-//            } catch {
-//                print("Failed to save wishlists: \(error)")
-//            }
-//        }
-//
-//        // Load wishlists from UserDefaults
-//        private func loadWishlists() {
-//            guard let data = UserDefaults.standard.data(forKey: wishlistKey) else {
-//                return
-//            }
-//
-//            do {
-//                let decoder = JSONDecoder()
-//                let wishlists = try decoder.decode([Wishlist].self, from: data)
-//                self.wishlists = wishlists
-//            } catch {
-//                print("Failed to load wishlists: \(error)")
-//            }
-//        }
 
 }

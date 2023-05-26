@@ -5,30 +5,19 @@
 //  Created by Vincent on 22/05/23.
 //
 
+
 import SwiftUI
 struct SchoolDetailView: View {
     @ObservedObject var school_controller: SchoolController
     @EnvironmentObject var wishlist_controller: WishlistController
     @State var school_id: Int
+    @State private var showMessage = false
+    @State private var toastMessage = ""
+
+
     
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Button(action: toggleWishlist) {
-                    if let school = school_controller.getSchoolByID(id: school_id),
-                       let wishlist = wishlist_controller.getWishlist(),
-                       wishlist.contains(school) {
-                        Image(systemName: "heart.fill")
-                    } else {
-                        Image(systemName: "heart")
-                    }
-                }
-                .padding()
-                .foregroundColor(.red)
-            }
-            .padding(.horizontal)
-            
             if let school = school_controller.getSchoolByID(id: school_id) {
                 VStack {
                     //scholarship logo
@@ -36,7 +25,7 @@ struct SchoolDetailView: View {
                         .resizable()
                         .frame(width: 95, height: 90)
                         .padding(1)
-                    
+                        
                     //scholarship name
                     Text(school.scholarship_name)
                         .font(.title)
@@ -44,32 +33,68 @@ struct SchoolDetailView: View {
                         .padding()
                     
                     //information details
-                    VStack(alignment: .leading){
-                        //school name
-                        HStack(alignment: .firstTextBaseline) {
-                            Image(systemName: "location.fill")
-                            Text(school.school_name)
-                        }.padding(5)
-                        
-                        //degree
-                        HStack(alignment: .firstTextBaseline) {
-                            Image(systemName: "medal")
-                            Text(school.scholarship_degree)
-                        }.padding(5)
-                        
-                        //scholarhsip type
-                        HStack(alignment: .firstTextBaseline) {
-                            Image(systemName: "dollarsign.circle")
-                            Text(school.scholarship_type)
-                        }.padding(5)
+                    ScrollView(){
+                        VStack(alignment: .leading) {
+                            //school name
+                            HStack(alignment: .firstTextBaseline) {
+                                Image(systemName: "location.fill")
+                                Text(school.school_name)
+                            }.padding(5)
+                            
+                            //degree
+                            HStack(alignment: .firstTextBaseline) {
+                                Image(systemName: "medal")
+                                Text(school.scholarship_degree)
+                            }.padding(5)
+                            
+                            //scholarhsip type
+                            HStack(alignment: .firstTextBaseline) {
+                                Image(systemName: "dollarsign.circle")
+                                Text(school.scholarship_type)
+                            }.padding(5)
+                            
+                            //description
+                            Text("Description")
+                                .font(.headline)
+                                .padding(5)
+                            Text(school.scholarship_description)
+                                .padding([.leading, .trailing], 5)
+
+                            
+                            // Majors
+                            Text("Majors")
+                                .font(.headline)
+                                .padding(5)
+                            ForEach(Array(school.majors), id: \.key) { major, description in
+                                Text("\(major) : \(description)")
+                                    .font(.subheadline)
+                                    .padding([.leading, .trailing], 5)
+                            }
+                            
+                            //required documents
+                            Text("Required Documents")
+                                .font(.headline)
+                                .padding(5)
+                            ForEach(school.required_documents, id: \.self) { document in
+                                Text("- \(document)")
+                                    .font(.subheadline)
+                                    .padding([.leading, .trailing], 5)
+                            }
+
+                            //aplication fee
+                            Text("Application Fee: Rp. \(school.application_fee)")
+                                .font(.headline)
+                                .padding(5)
+
+                            
+                        }
+                        .padding(.leading, 30)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .edgesIgnoringSafeArea(.all)
                     }
-                    .padding(.leading, 30)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .edgesIgnoringSafeArea(.all)
+                    
+                    Spacer()
 
-                    Text("Description")
-
-                    Text("Application Fee: Rp. \(school.application_fee)")
                     
                     //apply scholarship button
                     Button(action: {
@@ -84,30 +109,43 @@ struct SchoolDetailView: View {
                     .background(Color.blue)
                     .cornerRadius(15) //
                     .padding(30)
-
-                    
-                    Spacer()
-                    
+           
                     
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-
-                
-                
+                //wishlist button
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: toggleWishlist) {
+                            if let wishlist = wishlist_controller.getWishlist(school, students_id: school_id), wishlist.contains(school) {
+                                    Image(systemName: "heart.fill")
+                                        .foregroundColor(.red)
+                            } else {
+                                Image(systemName: "heart")
+                            }
+                        }
+                    }
+                }
             } else {
                 Text("School not found")
             }
         }
     }
     
-    private func toggleWishlist() {
+    private func toggleWishlist(){
         if let school = school_controller.getSchoolByID(id: school_id) {
-            if wishlist_controller.getWishlist()?.contains(school) == true {
-                wishlist_controller.deleteFromWishlist(school)
+            if wishlist_controller.getWishlist(school, students_id: school_id)?.contains(school) == true {
+                //remove from wishlist
+                wishlist_controller.deleteFromWishlist(school, students_id: school_id)
+                toastMessage = "School removed from wishlist"
             } else {
-                wishlist_controller.addToWishlist(school)
+//               add to wishlist
+                wishlist_controller.addToWishlist(school, students_id: school_id)
+                toastMessage = "School added to wishlist"
             }
         }
+        showMessage = true
+
     }
     
     struct SchoolDetailView_Previews: PreviewProvider {
