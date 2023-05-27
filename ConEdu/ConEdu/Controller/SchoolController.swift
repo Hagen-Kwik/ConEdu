@@ -10,12 +10,13 @@ import Foundation
 class SchoolController: ObservableObject {
     @Published var schools: [School] = School.data
     
-    func getSchoolList() -> Array<School> {
-       return schools
+    // Retrieve the list of schools
+    func getSchoolList() -> [School] {
+        return schools
     }
     
+    // Retrieve a school by ID
     func getSchoolByID(id: Int) -> School? {
-          return schools.first { $0.id == id }
-      }
-
+        return schools.first { $0.id == id }
+    }
 }

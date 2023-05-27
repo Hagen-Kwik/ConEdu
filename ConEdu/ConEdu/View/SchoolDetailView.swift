@@ -146,11 +146,14 @@ struct SchoolDetailView: View {
     //function logic to add or remove school from wishlist
     private func toggleWishlist(){
         if let school = school_controller.getSchoolByID(id: school_id) {
+            // if the wishlist contains the school, than remove it from the wishlist
             if wishlist_controller.getWishlist(school, students_id: school_id)?.contains(school) == true {
                 //remove from wishlist & assign toast message
-                wishlist_controller.deleteFromWishlist(school, students_id: school_id)
+                wishlist_controller.deleteWishlist(school, students_id: school_id)
                 toast_message = "School removed from wishlist"
-            } else {
+            }
+            // if the school is not wishlistedm than add it to the wishlist
+            else {
 //               add to wishlist & assign toast message
                 wishlist_controller.addToWishlist(school, students_id: school_id)
                 toast_message = "School added to wishlist"
