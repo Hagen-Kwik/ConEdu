@@ -45,7 +45,7 @@ class WishlistController: ObservableObject {
     // Add a school to the wishlist
     func addToWishlist(_ school: School, students_id: Int) {
         if let wishlist = getWishlist(school, students_id: student_id) {
-            let newWishlist = Wishlist(student_id: student_id)
+            let newWishlist = Wishlist(student_id: student_id, wishlist_id: 0)
             
             // Copy existing schools to the new wishlist
             for existingSchool in wishlist.schools {
@@ -61,7 +61,7 @@ class WishlistController: ObservableObject {
             wishlists.append(newWishlist)
         } else {
             // Create a new wishlist with the school
-            let newWishlist = Wishlist(student_id: student_id)
+            let newWishlist = Wishlist(student_id: student_id, wishlist_id: 0)
             newWishlist.schools.append(school)
             wishlists.append(newWishlist)
         }
